@@ -18,12 +18,12 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
-
+let controls;
 
 //Loads assets
 function preload() {
     this.load.image("tiles", './maps/Tileset01_32x32px.png');
-    this.load.tilemapTiledJSON ('map', './maps/TEST_MAP.json');
+    this.load.tilemapTiledJSON('map', './maps/Map01.json');
 
 }
 
@@ -32,17 +32,39 @@ function create() {
     const map = this.make.tilemap({ key: 'map'});
 
     //calling on map in preload
-    const tiles = map.addTilesetImage("Tileset 1", "tiles");
+    const tileset = map.addTilesetImage("Tileset 1", "tiles");
 
     //Layer name from Tiled, tileset, x, y
-    const wallLayer = map.createStaticLayer('Wall', 0, 0);
-    const floorLayer = map.createStaticLayer('Floor', 0, 0);
-
-    this.cameras.main.setBounds(0,0, map.widthInPixels, map.heightInPixels);
+    const floorLayer = map.createStaticLayer("FLOOR LAYER", tileset,0, 0);
+    const wallLayer = map.createStaticLayer("WALL LAYER", tileset, 0, 0);
 
 
+// Phaser supports multiple cameras, but you can access the default camera like this:
+    const camera = this.cameras.main;
 
+    // Set up the arrows to control the camera
+    const cursors = this.input.keyboard.createCursorKeys();
+    controls = new Phaser.Cameras.Controls.FixedKeyControl({
+        camera: camera,
+        left: cursors.left,
+        right: cursors.right,
+        up: cursors.up,
+        down: cursors.down,
+        speed: 0.5
+    });
 
+    // Constrain the camera so that it isn't allowed to move outside the width/height of tilemap
+    camera.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+
+    // Help text that has a "fixed" position on the screen
+    this.add
+        .text(16, 16, "Arrow keys to scroll", {
+            font: "18px monospace",
+            fill: "#ffffff",
+            padding: { x: 20, y: 10 },
+            backgroundColor: "#000000"
+        })
+        .setScrollFactor(0);
 }
 
 function update(time, delta){
