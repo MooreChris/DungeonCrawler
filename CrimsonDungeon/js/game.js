@@ -165,7 +165,7 @@ function create(game) {
     this.anims.create({
         key: 'idleGeneric',
         frames: this.anims.generateFrameNames('slime',{start: 0, end: 3}),
-        framerate: 10,
+        frameRate: 10,
         repeat: -1
     });
 
