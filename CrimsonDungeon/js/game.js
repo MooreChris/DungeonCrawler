@@ -6,7 +6,7 @@ const config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 200 }
+            gravity: { y: 0 }
         }
     },
     scene: {
@@ -19,11 +19,14 @@ const config = {
 
 const game = new Phaser.Game(config);
 let controls;
+let player;
 
 //Loads assets
 function preload() {
     this.load.image("tiles", './maps/Tileset01_32x32px.png');
     this.load.tilemapTiledJSON('map', './maps/Map01.json');
+    this.load.spritesheet('Player_01', './img/Player_01.png',
+        { frameWidth: 64, frameHeight: 64 });
 
 }
 
@@ -37,6 +40,34 @@ function create() {
     //Layer name from Tiled, tileset, x, y
     const floorLayer = map.createStaticLayer("FLOOR LAYER", tileset,0, 0);
     const wallLayer = map.createStaticLayer("WALL LAYER", tileset, 0, 0);
+
+    wallLayer.setCollisionByProperty({ collides: true });
+
+    player = this.physics.add.sprite(100, 450, 'Player_01');
+
+    player.setBounce(0.2);
+    player.setCollideWorldBounds(true);
+
+    this.anims.create({
+        key: 'left',
+        frames: this.anims.generateFrameNumbers('Player_01', { start: 0, end: 3 }),
+        frameRate: 10,
+        repeat: -1
+    });
+
+    this.anims.create({
+        key: 'turn',
+        frames: [ { key: 'Player_01', frame: 4 } ],
+        frameRate: 20
+    });
+
+    this.anims.create({
+        key: 'Player_01',
+        frames: this.anims.generateFrameNumbers('Player_01', { start: 5, end: 8 }),
+        frameRate: 10,
+        repeat: -1
+    });
+
 
 
 // Phaser supports multiple cameras, but you can access the default camera like this:
@@ -71,4 +102,6 @@ function update(time, delta){
     game.scale.pageAlignHorizontally = true;
     game.scale.pageAlignVertically = true;
     game.scale.refresh();
+
+
 }
