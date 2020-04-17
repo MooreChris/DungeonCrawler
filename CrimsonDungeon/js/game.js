@@ -62,8 +62,8 @@ function create() {
     // a bit of whitespace, so I'm using setSize & setOffset to control the size of the player's body.
     player = this.physics.add
         .sprite(PlayerSpawn.x, PlayerSpawn.y, "Player_01")
-        .setSize(30, 40)
-        .setOffset(0, 24);
+        .setSize(24, 24, 32, 32)
+        .setOffset(20, 24);
 
     // Watch the player and worldLayer for collisions, for the duration of the scene:
     this.physics.add.collider(player, wallLayer);
