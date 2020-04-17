@@ -162,6 +162,13 @@ function create(game) {
         });
     });
 
+    this.anims.create({
+        key: 'idleGeneric',
+        frames: this.anims.generateFrameNames('slime',{start: 0, end: 3}),
+        framerate: 10,
+        repeat: -1
+    });
+
     // Help text that has a "fixed" position on the screen
     this.add
         .text(550, 16, "Arrow keys to scroll", {
@@ -174,26 +181,17 @@ function create(game) {
 
     // enemy index, game reference, x, y
     const EnemySpawn1 = map.findObject("Objects", obj => obj.name === "EnemySpawn1");
-    {
-        slime = this.physics.add
-            .sprite(EnemySpawn1.x,EnemySpawn1.y,'slime')
-            .setSize(24,24,32,32)
-            .setOffset(20,24);
 
+    let slime1 = this.physics.add
+        .sprite(EnemySpawn1.x,EnemySpawn1.y,'slime')
+        .setSize(24,24,32,32)
+        .setOffset(4,4);
 
-        /*
-        this.slime.frame = 1;
+    // idle animation for the slime
+//    let slimeIdleAnim = slime.animation.add('idle');
+//    slime1.animation.play('slimeIdleAnim', 30, true);
 
-        this.slime.anchor.setTo(0.5, 0.5);
-        this.slime.name = index.toString(); // get index param, turn it to string to access as name
-        game.physics.enable(this.slime, Phaser.Physics.Arcade); // enable physics
-
-        this.slime.body.immovable = true; // make body immovable
-        this.slime.body.collideWorldBounds = true;
-
-         */
-    }
-
+    slime1.play('idleGeneric');
 
 }
 
