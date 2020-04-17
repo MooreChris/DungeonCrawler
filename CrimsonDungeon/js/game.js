@@ -26,17 +26,18 @@ let showDebug = false;
 //Loads assets
 function preload() {
     this.load.image("tiles", './maps/Tileset01_32x32px.png');
-    // TEMPORARY ATLAS
     this.load.tilemapTiledJSON('map', './maps/Map01.json');
     this.load.spritesheet('Player_01', './img/Player_01.png',
         { frameWidth: 64, frameHeight: 64 });
+    this.load.spritesheet('slime','./img/ENEMY_Slime.png',
+        { frameWidth: 32, frameHeight: 32 });
 
 }
 
 
 
 //Called once after preload has finished
-function create() {
+function create(game) {
     const map = this.make.tilemap({ key: 'map'});
 
     //calling on map in preload
@@ -170,6 +171,39 @@ function create() {
             backgroundColor: "#000000"
         })
         .setScrollFactor(0);
+
+    // enemy index, game reference, x, y
+    let EnemySlime = function (index, game, x, y) {
+
+        this.slime = game.add.sprite(x, y, 'slime',0);
+
+        /*
+        this.slime = this.physics.add
+            .sprite(x,y,'slime')
+            .setSize(24,24,32,32)
+            .setOffset(20,24);
+
+         */
+        this.slime.frame = 1;
+        this.slime.anchor.setTo(0.5, 0.5);
+        this.slime.name = index.toString(); // get index param, turn it to string to access as name
+        game.physics.enable(this.slime, Phaser.Physics.Arcade); // enable physics
+
+        this.slime.body.immovable = true; // make body immovable
+        this.slime.body.collideWorldBounds = true;
+/*
+        this.slimeTween = game.add.tween(this.slime).to({
+            y: this.slime.y + 25
+        }, 2000, 'Linear', true, 0, 100, true);
+
+ */
+    }
+
+    // Object layers in Tiled let you embed extra info into a map - like a spawn point or custom
+    // collision shapes. In the tmx file, there's an object layer with a point named "Spawn Point"
+    const EnemySpawn1 = map.findObject("Objects", obj => obj.name === "EnemySpawn1");
+    new EnemySlime(0,this.game,EnemySpawn1.x,EnemySpawn1.y);
+
 }
 
 
