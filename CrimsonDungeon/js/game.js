@@ -22,7 +22,7 @@ const game = new Phaser.Game(config);
 
 //Loads assets
 function preload() {
-    this.load.image('Tileset01_32x32px', './maps/Tileset01_32x32px.png');
+    this.load.image("tiles", './maps/Tileset01_32x32px.png');
     this.load.tilemapTiledJSON ('map', './maps/TEST_MAP.json');
 
 }
@@ -32,7 +32,7 @@ function create() {
     const map = this.make.tilemap({ key: 'map'});
 
     //calling on map in preload
-    const tiles = map.addTilesetImage('Tileset01_32x32px', 'tiles');
+    const tiles = map.addTilesetImage("Tileset 1", "tiles");
 
     //Layer name from Tiled, tileset, x, y
     const wallLayer = map.createStaticLayer('Wall', 0, 0);
