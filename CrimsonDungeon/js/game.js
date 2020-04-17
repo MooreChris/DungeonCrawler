@@ -28,7 +28,6 @@ function preload() {
     this.load.image("tiles", './maps/Tileset01_32x32px.png');
     // TEMPORARY ATLAS
     this.load.tilemapTiledJSON('map', './maps/Map01.json');
-    this.load.atlas("atlas", "https://www.mikewesthad.com/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.png", "https://www.mikewesthad.com/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.json");
     this.load.spritesheet('Player_01', './img/Player_01.png',
         { frameWidth: 64, frameHeight: 64 });
 
@@ -62,40 +61,12 @@ function create() {
     // Create a sprite with physics enabled via the physics system. The image used for the sprite has
     // a bit of whitespace, so I'm using setSize & setOffset to control the size of the player's body.
     player = this.physics.add
-        .sprite(PlayerSpawn.x, PlayerSpawn.y, "atlas", "misa-front")
+        .sprite(PlayerSpawn.x, PlayerSpawn.y, "Player_01")
         .setSize(30, 40)
         .setOffset(0, 24);
 
     // Watch the player and worldLayer for collisions, for the duration of the scene:
     this.physics.add.collider(player, wallLayer);
-
-    // Create the player's walking animations from the texture atlas. These are stored in the global
-    // animation manager so any sprite can access them.
-    const anims = this.anims;
-    anims.create({
-        key: "misa-left-walk",
-        frames: anims.generateFrameNames("atlas", { prefix: "misa-left-walk.", start: 0, end: 3, zeroPad: 3 }),
-        frameRate: 10,
-        repeat: -1
-    });
-    anims.create({
-        key: "misa-right-walk",
-        frames: anims.generateFrameNames("atlas", { prefix: "misa-right-walk.", start: 0, end: 3, zeroPad: 3 }),
-        frameRate: 10,
-        repeat: -1
-    });
-    anims.create({
-        key: "misa-front-walk",
-        frames: anims.generateFrameNames("atlas", { prefix: "misa-front-walk.", start: 0, end: 3, zeroPad: 3 }),
-        frameRate: 10,
-        repeat: -1
-    });
-    anims.create({
-        key: "misa-back-walk",
-        frames: anims.generateFrameNames("atlas", { prefix: "misa-back-walk.", start: 0, end: 3, zeroPad: 3 }),
-        frameRate: 10,
-        repeat: -1
-    });
 
     const camera = this.cameras.main;
     camera.startFollow(player);
@@ -116,25 +87,62 @@ function create() {
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
 
-    //this.anims.create({
-    //    key: 'left',
-    //    frames: this.anims.generateFrameNumbers('Player_01', { start: 0, end: 3 }),
-    //    frameRate: 10,
-    //    repeat: -1
-    //});
+    const anims = this.anims;
+    this.anims.create({
+        key: 'left',
+        frames: this.anims.generateFrameNumbers('Player_01', { start: 4, end: 6 }),
+        frameRate: 10,
+        repeat: -1
+    });
 
-    //this.anims.create({
-    //    key: 'turn',
-    //    frames: [ { key: 'Player_01', frame: 4 } ],
-    //    frameRate: 20
-    //});
+    this.anims.create({
+        key: 'leftSpace',
+        frames: this.anims.generateFrameNumbers('Player_01', { start: 7, end: 7 }),
+        frameRate: 10,
+        repeat: -1
+    });
 
-    //this.anims.create({
-    //    key: 'Player_01',
-    //    frames: this.anims.generateFrameNumbers('Player_01', { start: 5, end: 8 }),
-    //    frameRate: 10,
-    //    repeat: -1
-    //});
+    this.anims.create({
+        key: 'right',
+       frames: this.anims.generateFrameNumbers('Player_01', { start: 8, end: 10 }),
+        frameRate: 10,
+        repeat: -1
+    });
+
+    this.anims.create({
+        key: 'rightSpace',
+        frames: this.anims.generateFrameNumbers('Player_01', { start: 11, end: 11 }),
+        frameRate: 10,
+        repeat: -1
+    });
+
+    this.anims.create({
+        key: 'down',
+       frames: this.anims.generateFrameNumbers('Player_01', { start: 0, end: 2 }),
+       frameRate: 10,
+        repeat: -1
+    });
+
+    this.anims.create({
+        key: 'downSpace',
+        frames: this.anims.generateFrameNumbers('Player_01', { start: 3, end: 3 }),
+        frameRate: 10,
+        repeat: -1
+    });
+
+    this.anims.create({
+        key: 'up',
+        frames: this.anims.generateFrameNumbers('Player_01', { start: 12, end: 14 }),
+        frameRate: 10,
+        repeat: -1
+    });
+
+    this.anims.create({
+        key: 'upSpace',
+        frames: this.anims.generateFrameNumbers('Player_01', { start: 15, end: 15 }),
+        frameRate: 10,
+        repeat: -1
+    });
 
     // Debug graphics
     this.input.keyboard.once("keydown_D", event => {
@@ -186,25 +194,58 @@ function update(time, delta) {
         player.body.setVelocityY(speed);
     }
 
+    //Attack movement
+    if (cursors.left.isDown && cursors.space.isDown) {
+        player.body.setVelocityX(-speed);
+    } else if (cursors.right.isDown && cursors.space.isDown) {
+        player.body.setVelocityX(speed);
+    }
+
+    if (cursors.up.isDown && cursors.space.isDown) {
+        player.body.setVelocityY(-speed);
+    } else if (cursors.down.isDown && cursors.space.isDown) {
+        player.body.setVelocityY(speed);
+    }
+
+
     // Normalize and scale the velocity so that player can't move faster along a diagonal
     player.body.velocity.normalize().scale(speed);
 
     // Update the animation last and give left/right animations precedence over up/down animations
     if (cursors.left.isDown) {
-        player.anims.play("misa-left-walk", true);
-    } else if (cursors.right.isDown) {
-        player.anims.play("misa-right-walk", true);
-    } else if (cursors.up.isDown) {
-        player.anims.play("misa-back-walk", true);
-    } else if (cursors.down.isDown) {
-        player.anims.play("misa-front-walk", true);
-    } else {
-        player.anims.stop();
-
-        // If we were moving, pick and idle frame to use
-        if (prevVelocity.x < 0) player.setTexture("atlas", "misa-left");
-        else if (prevVelocity.x > 0) player.setTexture("atlas", "misa-right");
-        else if (prevVelocity.y < 0) player.setTexture("atlas", "misa-back");
-        else if (prevVelocity.y > 0) player.setTexture("atlas", "misa-front");
+        player.anims.play("left", true);
+        if (cursors.left.isDown && cursors.space.isDown){
+            player.anims.play("leftSpace", true);
+        }
     }
+
+    else if (cursors.right.isDown) {
+        player.anims.play("right", true);
+        if (cursors.right.isDown && cursors.space.isDown) {
+            player.anims.play("rightSpace", true);
+        }
+    }
+
+     else if (cursors.up.isDown) {
+         player.anims.play("up", true);
+         if (cursors.up.isDown && cursors.space.isDown) {
+             player.anims.play("upSpace", true);
+         }
+     }
+
+     else if (cursors.down.isDown) {
+        player.anims.play("down", true);
+             if (cursors.down.isDown && cursors.space.isDown) {
+                    player.anims.play("downSpace", true);
+                }
+        else {
+                    player.anims.stop();
+
+                    // If we were moving, pick and idle frame to use
+                    if (prevVelocity.x < 0) player.setTexture("Player_01", "left");
+                    if (prevVelocity.x > 0) player.setTexture("Player_01", "right");
+                    if (prevVelocity.y < 0) player.setTexture("Player_01", "up");
+                    if (prevVelocity.y > 0) player.setTexture("Player_01", "down");
+                }
+            }
 }
