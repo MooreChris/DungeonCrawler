@@ -19,7 +19,6 @@ const config = {
 
 
 const game = new Phaser.Game(config);
-let controls;
 let cursors;
 let player;
 let showDebug = false;
@@ -28,8 +27,8 @@ let showDebug = false;
 function preload() {
     this.load.image("tiles", './maps/Tileset01_32x32px.png');
     // TEMPORARY ATLAS
-    this.load.atlas("atlas", "https://www.mikewesthad.com/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.png", "https://www.mikewesthad.com/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.json");
     this.load.tilemapTiledJSON('map', './maps/Map01.json');
+    this.load.atlas("atlas", "https://www.mikewesthad.com/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.png", "https://www.mikewesthad.com/phaser-3-tilemap-blog-posts/post-1/assets/atlas/atlas.json");
     this.load.spritesheet('Player_01', './img/Player_01.png',
         { frameWidth: 64, frameHeight: 64 });
 
@@ -51,10 +50,10 @@ function create() {
     // player = this.physics.add.sprite(200, 200, 'Player_01');
 
     // make the player collide with the walls on wall layer
-    //wallLayer.setCollisionByProperty({ collides: true });
+    wallLayer.setCollisionByProperty({ collides: true });
 
     // Watch the player and worldLayer for collisions, for the duration of the scene:
-    this.physics.add.collider(player, wallLayer);
+    //this.physics.add.collider(player, wallLayer);
 
     // Object layers in Tiled let you embed extra info into a map - like a spawn point or custom
     // collision shapes. In the tmx file, there's an object layer with a point named "Spawn Point"
@@ -110,32 +109,32 @@ function create() {
 //    this.player = new Player(this, map.widthInPixels / 2, map.heightInPixels / 2);
 
     // make the player collide with things
-//    this.physics.add.collider(this.player.sprite, wallLayer);
+    //this.physics.add.collider(this.player.sprite, wallLayer);
 
-    player.originX(0.5);
-    player.originY(0.5);
+    //player.originX(0.5);
+    //player.originY(0.5);
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);
 
-    this.anims.create({
-        key: 'left',
-        frames: this.anims.generateFrameNumbers('Player_01', { start: 0, end: 3 }),
-        frameRate: 10,
-        repeat: -1
-    });
+    //this.anims.create({
+    //    key: 'left',
+    //    frames: this.anims.generateFrameNumbers('Player_01', { start: 0, end: 3 }),
+    //    frameRate: 10,
+    //    repeat: -1
+    //});
 
-    this.anims.create({
-        key: 'turn',
-        frames: [ { key: 'Player_01', frame: 4 } ],
-        frameRate: 20
-    });
+    //this.anims.create({
+    //    key: 'turn',
+    //    frames: [ { key: 'Player_01', frame: 4 } ],
+    //    frameRate: 20
+    //});
 
-    this.anims.create({
-        key: 'Player_01',
-        frames: this.anims.generateFrameNumbers('Player_01', { start: 5, end: 8 }),
-        frameRate: 10,
-        repeat: -1
-    });
+    //this.anims.create({
+    //    key: 'Player_01',
+    //    frames: this.anims.generateFrameNumbers('Player_01', { start: 5, end: 8 }),
+    //    frameRate: 10,
+    //    repeat: -1
+    //});
 
 
 
