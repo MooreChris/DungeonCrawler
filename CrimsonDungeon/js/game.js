@@ -64,6 +64,7 @@ function create(game) {
         .sprite(PlayerSpawn.x, PlayerSpawn.y, "Player_01")
         .setSize(24, 24, 32, 32)
         .setOffset(20, 24);
+        //.setDisplaySize(96,96);
 
     // Watch the player and worldLayer for collisions, for the duration of the scene:
     this.physics.add.collider(player, wallLayer);
@@ -189,7 +190,7 @@ function create(game) {
 
         this.slime.body.immovable = true; // make body immovable
         this.slime.body.collideWorldBounds = true;
-        
+
          */
     }
 
