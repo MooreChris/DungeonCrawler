@@ -267,10 +267,10 @@ function update(time, delta) {
                     player.anims.stop();
 
                     // If we were moving, pick and idle frame to use
-                    if (prevVelocity.x < 0) player.setTexture("Player_01", "left");
-                    if (prevVelocity.x > 0) player.setTexture("Player_01", "right");
-                    if (prevVelocity.y < 0) player.setTexture("Player_01", "up");
-                    if (prevVelocity.y > 0) player.setTexture("Player_01", "down");
+                 if (prevVelocity.x < 0) player.setTexture("Player_01", "player_left");
+                 if (prevVelocity.x > 0) player.setTexture("Player_01", "player_right");
+                 if (prevVelocity.y < 0) player.setTexture("Player_01", "player_up");
+                 if (prevVelocity.y > 0) player.setTexture("Player_01", "player_down");
                 }
             }
 }
