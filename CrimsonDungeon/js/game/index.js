@@ -1,8 +1,11 @@
-import Phaser from '../libs/phaser.js';
+// import Phaser from '../libs/phaser';
 import GameScene from '../scenes/game-scene.js';
 
-const height = 600; // height of gameScene window
+// const height = 600; // height of gameScene window
 
+// I think this starts the actual game scene?
+
+// game configuration
 const config = {
     type: Phaser.AUTO,
     pixelArt: true,
@@ -28,4 +31,4 @@ const config = {
     // autoRound: false
 };
 
-// const game = new Phaser.game(config);
+let gameScene = new Phaser.Game(config);

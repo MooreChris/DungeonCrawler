@@ -19,4 +19,4 @@ var config = {
 
 // this file handles the functions of the game itself
 
-var game = new Phaser.Game(config);
+let game = new Phaser.Game(config);

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./js",
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

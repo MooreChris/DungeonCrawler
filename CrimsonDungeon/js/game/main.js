@@ -1,4 +1,4 @@
-import Phaser from '../libs/phaser.js';
+// import Phaser from '../libs/phaser.js';
 
 import GameScene from "../scenes/game-scene.js";
 

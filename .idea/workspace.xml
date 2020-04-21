@@ -11,6 +11,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="tsconfig.json" />
       </list>
     </option>
   </component>
@@ -37,10 +38,11 @@
       <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\libs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon" />
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js" />
       <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\scenes" />
       <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\libs" />
       <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\game" />
-      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -57,7 +59,7 @@
       <workItem from="1587088684588" duration="2921000" />
       <workItem from="1587095494476" duration="5689000" />
       <workItem from="1587463596830" duration="4051000" />
-      <workItem from="1587468235879" duration="9168000" />
+      <workItem from="1587468235879" duration="13794000" />
     </task>
     <servers />
   </component>
