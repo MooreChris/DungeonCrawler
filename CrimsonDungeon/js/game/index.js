@@ -1,5 +1,5 @@
 import Phaser from '../libs/phaser.js';
-import GameScene from '../scenes/game-scene';
+import GameScene from '../scenes/game-scene.js';
 
 const height = 600; // height of gameScene window
 
@@ -28,4 +28,4 @@ const config = {
     // autoRound: false
 };
 
-const game = new Phaser.game(config);
+// const game = new Phaser.game(config);

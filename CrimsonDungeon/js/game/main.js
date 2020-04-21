@@ -1,59 +1,15 @@
-// This class will handle all functionalities other than game
-import info from './constants';
-const e = React.createElement;
+import Phaser from '../libs/phaser.js';
 
-class Main extends React.Component {
+import GameScene from "../scenes/game-scene.js";
 
-    constructor(props) {
-        console.log('Main Constructor');
-        super(props);
-        this.count = 1;
-        this.state = { liked: false };
-        this.init();
-        this.height = window.innerHeight - 56;
-        // set container height
-        document.querySelector("#exercise").style.height = this.height+'px';
+new Phaser.Game({
+    type: Phaser.WEBGL,
+    width: window.innerWidth,
+    height: window.innerHeight,
+    render: { pixelArt: true },
+    physics: { default: "arcade", arcade: { debug: false, gravity: { y: 0 } } },
+    scene: [GameScene],
+    scale: {
+        mode: Phaser.Scale.RESIZE
     }
-
-    init() {
-        console.log('Initialization');
-        this.setGametext();
-    }
-
-    setGametext() {
-        const self = this;
-        setInterval(()=> {
-            document.querySelector("#gameInfo").classList.remove('fade');
-            setTimeout( ()=> {
-                document.querySelector("#gameInfo").classList.add('fade');
-                document.querySelector("#gameInfo").innerHTML = info.gameText[self.getCount(self.count++)];
-            }, 1000);
-        }, 4000);
-    }
-
-    getCount(counter) {
-        if(counter === 4) {
-            this.count = 1;
-            return 1;
-        } else {
-            return counter;
-        }
-    }
-
-    render() {
-        if (this.state.liked) {
-            return 'You liked comment number ' + this.props.commentID;
-        }
-
-        return e(
-            'button',
-            { onClick: () => this.setState({ liked: true }) },
-            'Like'
-        );
-    }
-}
-
-const domContainer = document.querySelector('#exercise');
-//ReactDOM.render(e(Main), domContainer);
-
-export default Main;
+});

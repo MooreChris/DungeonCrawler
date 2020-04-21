@@ -1,9 +1,10 @@
-import Phaser from '../libs/phaser.js';
+import Phaser from '../libs/phaser.js'
 
-const width = window.innerWidth < 1300 ? 1325: window.innerWidth;
-const height = window.innerHeight;
+
+// const width = window.innerWidth < 1300 ? 1325: window.innerWidth;
+// const height = window.innerHeight;
 // set container height
-document.querySelector("#canvas-container").style.height = height+'px';
+// document.querySelector("#canvas-container").style.height = height+'px';
 
 // const gameScene = new Phaser.Game(config);
 // game variables
@@ -317,4 +318,3 @@ class GameScene extends Phaser.scene {
     }
 }
 
-export default GameScene;

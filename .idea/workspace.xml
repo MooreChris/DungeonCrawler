@@ -27,6 +27,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jsx.switch.disabled" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/CrimsonDungeon/js/libs" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -56,7 +57,7 @@
       <workItem from="1587088684588" duration="2921000" />
       <workItem from="1587095494476" duration="5689000" />
       <workItem from="1587463596830" duration="4051000" />
-      <workItem from="1587468235879" duration="3143000" />
+      <workItem from="1587468235879" duration="9168000" />
     </task>
     <servers />
   </component>
