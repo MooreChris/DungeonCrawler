@@ -45,6 +45,10 @@ export default class GameScene extends Phaser.Scene {
     create(game) {
         const map = this.make.tilemap({ key: 'map'});
 
+        // background colour
+        // this.backgroundColor = "#87524E";
+        this.cameras.main.setBackgroundColor("#260D19");
+
         //calling on map in preload
         const tileset = map.addTilesetImage("Tileset 1", "tiles");
 
