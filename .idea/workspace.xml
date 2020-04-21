@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0acda27b-282c-4df7-94a2-1833fc55816e" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="tsconfig.json" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ae4oXd5BUGz7wogyazNgPnUR1j" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jsx.switch.disabled" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CrimsonDungeon/js/libs" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\libs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\libs" />
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon" />
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js" />
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\scenes" />
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\game" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0acda27b-282c-4df7-94a2-1833fc55816e" name="Default Changelist" comment="" />
+      <created>1587082901285</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587082901285</updated>
+      <workItem from="1587082904576" duration="2758000" />
+      <workItem from="1587088684588" duration="2921000" />
+      <workItem from="1587095494476" duration="5689000" />
+      <workItem from="1587463596830" duration="4051000" />
+      <workItem from="1587468235879" duration="15159000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="179" key="#Notifications" timestamp="1587466453100">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587466453100" />
+    <state x="728" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587089032180">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="728" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587089032180" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1587467402603">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587467402603" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1587466517231">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587466517231" />
+  </component>
+</project>
