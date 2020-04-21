@@ -27,9 +27,20 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CrimsonDungeon/js/libs" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\libs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\scenes" />
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\libs" />
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\game" />
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -44,6 +55,8 @@
       <workItem from="1587082904576" duration="2758000" />
       <workItem from="1587088684588" duration="2921000" />
       <workItem from="1587095494476" duration="5689000" />
+      <workItem from="1587463596830" duration="4051000" />
+      <workItem from="1587468235879" duration="3143000" />
     </task>
     <servers />
   </component>
@@ -51,13 +64,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="179" key="#Notifications" timestamp="1587466453100">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="179" key="#Notifications/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587466453100" />
     <state x="728" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587089032180">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="728" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587089032180" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1587083607020">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1587467402603">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587083607020" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587467402603" />
+    <state x="461" y="163" key="SettingsEditor" timestamp="1587466517231">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="163" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587466517231" />
   </component>
 </project>
