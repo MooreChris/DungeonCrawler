@@ -1,5 +1,7 @@
 // import Phaser from '../libs/phaser.js'
 // game variables
+// import controlsInfo from "../game/constants.js";
+
 let cursors;
 let player;
 let slime;
@@ -86,7 +88,7 @@ export default class GameScene extends Phaser.Scene {
 
 
             // adds a new player to the gameScene
-    //    this.player = new Player(this, map.widthInPixels / 2, map.heightInPixels / 2);
+    //    this.player = new Actor(this, map.widthInPixels / 2, map.heightInPixels / 2);
 
         // make the player collide with things
         //this.physics.add.collider(this.player.sprite, wallLayer);
@@ -179,39 +181,9 @@ export default class GameScene extends Phaser.Scene {
             repeat: -1
         });
 
-        // four idle directional poses
-
-        this.anims.create({
-            key: 'playerIdleUp',
-            frames: this.anims.generateFrameNames('player_up'),
-            frameRate: 1,
-            repeat: -1
-        })
-
-        this.anims.create({
-            key: 'playerIdleDown',
-            frames: this.anims.generateFrameNames('player_down'),
-            frameRate: 1,
-            repeat: -1
-        })
-
-        this.anims.create({
-            key: 'playerIdleLeft',
-            frames: this.anims.generateFrameNames('player_left'),
-            frameRate: 1,
-            repeat: -1
-        })
-
-        this.anims.create({
-            key: 'playerIdleRight',
-            frames: this.anims.generateFrameNames('player_right'),
-            frameRate: 1,
-            repeat: -1
-        })
-
         // Help text that has a "fixed" position on the screen
         this.add
-            .text(550, 16, "Arrow keys to scroll", {
+            .text(550, 16, "Arrow keys to move", {
                 font: "18px monospace",
                 fill: "#ffffff",
                 padding: { x: 20, y: 10 },

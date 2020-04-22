@@ -3,7 +3,7 @@ import GameScene from '../scenes/game-scene.js';
 
 // const height = 600; // height of gameScene window
 
-// I think this starts the actual game scene?
+// this file starts the actual game
 
 // game configuration
 const config = {

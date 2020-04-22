@@ -18,3 +18,5 @@ const controlsInfo = {
         '2': "Space bar to Attack"
     }
 }
+
+export default controlsInfo;
