@@ -40,15 +40,15 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\libs" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\img" />
       <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\libs" />
       <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon" />
       <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js" />
       <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\scenes" />
-      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\game" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\james\Documents\GitHub\DungeonCrawler\CrimsonDungeon\js\libs" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -66,7 +66,7 @@
       <workItem from="1587095494476" duration="5689000" />
       <workItem from="1587463596830" duration="4051000" />
       <workItem from="1587468235879" duration="15159000" />
-      <workItem from="1587573596313" duration="2413000" />
+      <workItem from="1587573596313" duration="8047000" />
     </task>
     <servers />
   </component>
@@ -86,6 +86,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="300" key="#com.intellij.ide.scriptingContext.ui.PerFileMappingsDialogWrapper/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587573561962" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587582055122">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587582055122" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1587467402603">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
