@@ -37,7 +37,7 @@ let Keys; {
 // function generateMap (){    }
 
 // this function is special as it has no name and can be called immediately
-(function () {
+function actorCode() {
     // console.log("actor.js was loaded and function started");
 
     Actor.prototype.setXY = function (x, y){
@@ -126,5 +126,5 @@ let Keys; {
 
 
 
-} ());
+};
 
