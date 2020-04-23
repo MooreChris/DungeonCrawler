@@ -1,6 +1,11 @@
 // import Phaser from '../libs/phaser.js'
 // game variables
+
 // import controlsInfo from "../game/constants.js";
+
+import "../game/actor.js";
+import {actorCode} from "../game/actor.js";
+// import {actorCode} from "../game/actor";
 
 let cursors;
 let player;
@@ -9,6 +14,8 @@ let gameOver = false;
 let showDebug = false;
 
 // const game = new Phaser.game(config);
+
+
 
 // the main game class
 export default class GameScene extends Phaser.Scene {
@@ -25,28 +32,26 @@ export default class GameScene extends Phaser.Scene {
         this.load.tilemapTiledJSON('map', './maps/Map01.json');
 
         // player animation sheets
-        this.load.spritesheet('Player_01', './img/PLAYER_Sprite1.png',
+        this.load.spritesheet('Player_01', './img/Player_01.png',
             { frameWidth: 64, frameHeight: 64 });
+        this.load.spritesheet('Player_Up', './img/player_up.png',
+            { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet('Player_Down', './img/player_down.png',
+            { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet('Player_Right', './img/player_right.png',
+            { frameWidth: 32, frameHeight: 32 });
+        this.load.spritesheet('Player_Left', './img/player_left.png',
+            { frameWidth: 32, frameHeight: 32 });
         // enemy animation sheets
          this.load.spritesheet('slime','./img/ENEMY_Slime.png',
              { frameWidth: 32, frameHeight: 32 });
 
-         this.load.audio('theme', [
-             './music/Horror_Music.mp3'
-         ])
-
     }
+
 
 
     //Called once after preload has finished
     create(game) {
-
-        // play music
-        let music = this.sound.add('theme');
-
-        music.play();
-        music.setVolume(0.1);
-
         const map = this.make.tilemap({ key: 'map'});
 
         // background colour
@@ -78,6 +83,8 @@ export default class GameScene extends Phaser.Scene {
             .setOffset(20, 24);
             //.setDisplaySize(96,96);
 
+
+
         // Watch the player and worldLayer for collisions, for the duration of the scene:
         this.physics.add.collider(player, wallLayer);
 
@@ -90,7 +97,7 @@ export default class GameScene extends Phaser.Scene {
 
 
             // adds a new player to the gameScene
-    //    this.player = new Actor(this, map.widthInPixels / 2, map.heightInPixels / 2);
+    //    this.player = new Player(this, map.widthInPixels / 2, map.heightInPixels / 2);
 
         // make the player collide with things
         //this.physics.add.collider(this.player.sprite, wallLayer);
@@ -102,84 +109,56 @@ export default class GameScene extends Phaser.Scene {
 
         const anims = this.anims;
         this.anims.create({
-            key: 'playerLeft',
-            frames: this.anims.generateFrameNumbers('Player_01', { start: 4, end: 4 }),
+            key: 'left',
+            frames: this.anims.generateFrameNumbers('Player_01', { start: 4, end: 6 }),
             frameRate: 10,
             repeat: -1
         });
 
         this.anims.create({
-            key: 'moveLeft',
-            frames: this.anims.generateFrameNumbers('Player_01', { start: 4, end: 6 }),
-            frameRate: 10,
-            repeat: false
-        });
-
-        this.anims.create({
-            key: 'leftAttack',
+            key: 'leftSpace',
             frames: this.anims.generateFrameNumbers('Player_01', { start: 7, end: 7 }),
             frameRate: 10,
             repeat: -1
         });
 
         this.anims.create({
-            key: 'playerRight',
-           frames: this.anims.generateFrameNumbers('Player_01', { start: 8, end: 8 }),
+            key: 'right',
+           frames: this.anims.generateFrameNumbers('Player_01', { start: 8, end: 10 }),
             frameRate: 10,
             repeat: -1
         });
 
         this.anims.create({
-            key: 'moveRight',
-            frames: this.anims.generateFrameNumbers('Player_01', { start: 8, end: 10 }),
-            frameRate: 10,
-            repeat: false
-        });
-
-        this.anims.create({
-            key: 'rightAttack',
+            key: 'rightSpace',
             frames: this.anims.generateFrameNumbers('Player_01', { start: 11, end: 11 }),
             frameRate: 10,
             repeat: -1
         });
 
         this.anims.create({
-            key: 'playerDown',
-            frames: this.anims.generateFrameNumbers('Player_01', { start: 0, end: 0 }),
+            key: 'down',
+            frames: this.anims.generateFrameNumbers('Player_01', { start: 0, end: 2 }),
             frameRate: 10,
             repeat: -1
         });
 
         this.anims.create({
-            key: 'downMove',
-            frames: this.anims.generateFrameNumbers('Player_01', { start: 0, end: 2 }),
-            frameRate: 10,
-            repeat: false
-        });
-
-        this.anims.create({
-            key: 'downAttack',
+            key: 'downSpace',
             frames: this.anims.generateFrameNumbers('Player_01', { start: 3, end: 3 }),
             frameRate: 10,
             repeat: -1
         });
 
         this.anims.create({
-            key: 'playerUp',
-            frames: this.anims.generateFrameNumbers('Player_01', { start: 12, end: 12 }),
+            key: 'up',
+            frames: this.anims.generateFrameNumbers('Player_01', { start: 12, end: 14 }),
             frameRate: 10,
             repeat: -1
         });
 
         this.anims.create({
-            key: 'upMove',
-            frames: this.anims.generateFrameNumbers('Player_01', { start: 12, end: 14 }),
-            frameRate: 10,
-            repeat: false
-        });
-
-        this.anims.create({
-            key: 'upAttack',
+            key: 'upSpace',
             frames: this.anims.generateFrameNumbers('Player_01', { start: 15, end: 15 }),
             frameRate: 10,
             repeat: -1
@@ -211,9 +190,39 @@ export default class GameScene extends Phaser.Scene {
             repeat: -1
         });
 
+        // four idle directional poses
+
+        this.anims.create({
+            key: 'playerIdleUp',
+            frames: this.anims.generateFrameNames('player_up'),
+            frameRate: 1,
+            repeat: -1
+        })
+
+        this.anims.create({
+            key: 'playerIdleDown',
+            frames: this.anims.generateFrameNames('player_down'),
+            frameRate: 1,
+            repeat: -1
+        })
+
+        this.anims.create({
+            key: 'playerIdleLeft',
+            frames: this.anims.generateFrameNames('player_left'),
+            frameRate: 1,
+            repeat: -1
+        })
+
+        this.anims.create({
+            key: 'playerIdleRight',
+            frames: this.anims.generateFrameNames('player_right'),
+            frameRate: 1,
+            repeat: -1
+        })
+
         // Help text that has a "fixed" position on the screen
         this.add
-            .text(550, 16, "Arrow keys to move", {
+            .text(550, 16, "Arrow keys to scroll", {
                 font: "18px monospace",
                 fill: "#ffffff",
                 padding: { x: 20, y: 10 },
@@ -235,6 +244,8 @@ export default class GameScene extends Phaser.Scene {
 
         slime1.play('idleGeneric');
 
+        actorCode();
+
     }
 
 
@@ -244,40 +255,24 @@ export default class GameScene extends Phaser.Scene {
         const speed = 175;
         const prevVelocity = player.body.velocity.clone();
 
-        // the four directions
-        const directions = [
-            {x: -1, y: 0}, // left
-            {x: 1, y: 0}, // right
-            {x: 0, y: -1}, // up
-            {x: 0, y: 1} // down
-        ];
-
-        let playerDirX = 0;
-        let playerDirY = 1;
-
         // Stop any previous movement from the last frame
         player.body.setVelocity(0);
 
         // Horizontal movement
         if (cursors.left.isDown) {
             player.body.setVelocityX(-speed);
-            playerDirX = -1; // face left
         } else if (cursors.right.isDown) {
             player.body.setVelocityX(speed);
-            playerDirX = 1; // face right
         }
 
         // Vertical movement
         if (cursors.up.isDown) {
             player.body.setVelocityY(-speed);
-            playerDirY = -1; // face up
         } else if (cursors.down.isDown) {
             player.body.setVelocityY(speed);
-            playerDirY = 1; // face down
         }
 
         //Attack movement
-        /*
         if (cursors.left.isDown && cursors.space.isDown) {
             player.body.setVelocityX(-speed);
         } else if (cursors.right.isDown && cursors.space.isDown) {
@@ -289,66 +284,48 @@ export default class GameScene extends Phaser.Scene {
         } else if (cursors.down.isDown && cursors.space.isDown) {
             player.body.setVelocityY(speed);
         }
-        */
 
-        let playerIsAttacking = false;
-
-
-        if (cursors.space.isDown){
-            playerIsAttacking = true;
-        } else {
-            playerIsAttacking = false;
-        }
 
         // Normalize and scale the velocity so that player can't move faster along a diagonal
         player.body.velocity.normalize().scale(speed);
 
         // Update the animation last and give left/right animations precedence over up/down animations
-        if (cursors.left.isDown) {  // LEFT
-            player.anims.play("moveLeft", true);
-            if (cursors.left.isDown && playerIsAttacking){
-                player.anims.play("leftAttack", true);
+        if (cursors.left.isDown) {
+            player.anims.play("left", true);
+            if (cursors.left.isDown && cursors.space.isDown){
+                player.anims.play("leftSpace", true);
             }
         }
 
-        else if (cursors.right.isDown) {    // RIGHT
-            player.anims.play("moveRight", true);
-            if (cursors.right.isDown && playerIsAttacking) {
-                player.anims.play("rightAttack", true);
+        else if (cursors.right.isDown) {
+            player.anims.play("right", true);
+            if (cursors.right.isDown && cursors.space.isDown) {
+                player.anims.play("rightSpace", true);
             }
         }
 
-         else if (cursors.up.isDown) {  // UP
-             player.anims.play("upMove", true);
-             if (cursors.up.isDown && playerIsAttacking) {
-                 player.anims.play("upAttack", true);
+         else if (cursors.up.isDown) {
+             player.anims.play("up", true);
+             if (cursors.up.isDown && cursors.space.isDown) {
+                 player.anims.play("upSpace", true);
              }
          }
 
-         else if (cursors.down.isDown) { // DOWN
-            player.anims.play("downMove", true);
-            if (cursors.down.isDown && playerIsAttacking) {
-                player.anims.play("downAttack", true);
-            }
-
-            else {
-                // unused
-                        // player.anims.stop();
-            /*
-                        // If we were moving, pick an idle frame to use
-                     if (prevVelocity.x < 0) player.anims.play("playerLeft", true);
-                     if (prevVelocity.x > 0) player.anims.play("playerRight", true);
-                     if (prevVelocity.y < 0) player.anims.play("playerUp", true);
-                     if (prevVelocity.y > 0) player.anims.play("playerDown", true);
-
-             */
+         else if (cursors.down.isDown) {
+            player.anims.play("down", true);
+                 if (cursors.down.isDown && cursors.space.isDown) {
+                        player.anims.play("downSpace", true);
                     }
+            else {
+                        // player.anims.stop();
 
-
-         }
-
+                        // If we were moving, pick an idle frame to use
+     //                if (prevVelocity.x < 0) player.anims.play("playerIdleLeft", true);
+     //                if (prevVelocity.x > 0) player.anims.play("playerIdleRight", true);
+     //                if (prevVelocity.y < 0) player.anims.play("playerIdleUp", true);
+     //                if (prevVelocity.y > 0) player.anims.play("playerIdleDown", true);
+                    }
+                }
     }
-
-
 }
 
