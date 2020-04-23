@@ -248,8 +248,6 @@ export default class GameScene extends Phaser.Scene {
         // Stop any previous movement from the last frame
         player.body.setVelocity(0);
 
-        Player.
-
         // Horizontal movement
         if (cursors.left.isDown) {
             player.body.setVelocityX(-speed);

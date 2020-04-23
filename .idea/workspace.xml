@@ -35,7 +35,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CrimsonDungeon/js/libs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
@@ -68,6 +68,7 @@
       <workItem from="1587468235879" duration="15159000" />
       <workItem from="1587573596313" duration="8047000" />
       <workItem from="1587647280465" duration="1138000" />
+      <workItem from="1587679469209" duration="61000" />
     </task>
     <servers />
   </component>
