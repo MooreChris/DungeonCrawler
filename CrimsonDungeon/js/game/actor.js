@@ -2,13 +2,6 @@
 
 const speed = 175; // player speed
 
-const attackSpeed = 500; // speed of the player attack
-const attackDuration = 150;
-const staggerDuration = 200; // duration of player stagger state (hitstun)
-const staggerSpeed = 100; // speed of the player during hitstun
-
-const attackCooldown = attackDuration * 2; // minimum time between attacks
-
 let ACTORS = 25; // maximum number of entities in a single instance of the game world
 
 // a list of all actors, i0 is the player
@@ -36,7 +29,6 @@ let Keys; {
 
 // function generateMap (){    }
 
-// this function is special as it has no name and can be called immediately
 function actorCode() {
     // console.log("actor.js was loaded and function started");
 
