@@ -31,12 +31,22 @@ export default class GameScene extends Phaser.Scene {
          this.load.spritesheet('slime','./img/ENEMY_Slime.png',
              { frameWidth: 32, frameHeight: 32 });
 
-    }
+         this.load.audio('theme', [
+             './music/Horror_Music.mp3'
+         ])
 
+    }
 
 
     //Called once after preload has finished
     create(game) {
+
+        // play music
+        let music = this.sound.add('theme');
+
+        music.play();
+        music.setVolume(0.1);
+
         const map = this.make.tilemap({ key: 'map'});
 
         // background colour
